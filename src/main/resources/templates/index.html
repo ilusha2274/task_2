@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="main">
+        <h1 class="name-command">Введите название команды.</h1>
+        <div class="menu">
+            <form action="/" method="post">
+                <input type="text" name="textCommand" id="textCommand" placeholder="Текст команды" class="input-text">
+            </form>
+            <form action="/list" method="post">
+                <button class="button-list">Список команд</button>
+            </form>
+        </div>
+        <div style="width: 100%;">
+            <p class="info" th:text="${commandInfo}"></p>
+        </div>
+        <div style="width: 100%;">
+            <tr th:each="command : ${listCommands}">
+                <p class="info" th:text="${command}"></p>
+            </tr>
+        </div>
+    </div>
+</body>
+</html>
